@@ -1,0 +1,196 @@
+Voici le cahier des charges complet pour tes deux projets de la Semaine 1.
+
+Objectif global : **Simuler le Back-end avec du Front-end.**
+
+1. **Projet 1 (Lun-Mar)** : Gérer une base de données locale (CRUD & LocalStorage).
+2. **Projet 2 (Mer-Jeu)** : Consommer des données externes (API & Async).
+
+---
+
+### 📝 PROJET 1 : Le "Kanban Persistant" (Lundi - Mardi)
+
+*Un clone simplifié de Trello.*
+
+**Concept Clé :** Tu dois manipuler un **État (State)** en JavaScript. L'interface (HTML) ne doit être qu'un reflet de tes données JS.
+
+#### 1. Structure de Données (Le "Cerveau")
+
+Tu ne dois pas avoir 3 tableaux séparés. Tu dois avoir **un seul tableau** d'objets, où le champ `status` détermine la colonne.
+*Exemple de structure à respecter :*
+
+```json
+[
+  { "id": 123, "title": "Faire le CSS", "status": "todo" },
+  { "id": 456, "title": "Apprendre Fetch", "status": "doing" },
+  { "id": 789, "title": "Installer Git", "status": "done" }
+]
+
+```
+
+#### 2. Interface Utilisateur (UI)
+
+* **Header :** Titre + Bouton "Ajouter une tâche".
+* **Le Plateau (Board) :** 3 colonnes fixes.
+* *To Do* (À faire)
+* *Doing* (En cours)
+* *Done* (Terminé)
+
+
+* **Les Cartes :** Chaque tâche est une "Card" dans une colonne contenant :
+* Le titre de la tâche.
+* Des boutons d'action (Modifier, Supprimer).
+* Un moyen de changer de colonne (Menu déroulant ou flèches <- ->).
+
+
+
+#### 3. Fonctionnalités (User Stories)
+
+1. **CREATE (Ajouter) :** L'utilisateur clique sur "Ajouter", saisit un titre, et la tâche apparaît dans la colonne "To Do".
+2. **READ (Afficher) :** Au chargement de la page (`window.onload`), le script lit le `localStorage`. S'il y a des données, il les affiche dans les bonnes colonnes. Sinon, le tableau est vide.
+3. **UPDATE (Déplacer) :** L'utilisateur peut passer une tâche de "To Do" à "Doing", etc. Cela met à jour le `status` dans le tableau JS et sauvegarde dans le `localStorage`.
+4. **DELETE (Supprimer) :** L'utilisateur peut supprimer une tâche. Elle disparaît de l'écran et de la mémoire du navigateur.
+
+C'est la meilleure façon d'apprendre. Voici le plan d'architecture (le "Blueprint") pour ton fichier `app.js`.
+
+Considère ce fichier comme une recette de cuisine. Tu dois préparer tes ingrédients (variables), puis définir tes étapes de préparation (fonctions), et enfin lancer la cuisson (événements).
+
+---
+
+### Étape 1 : Les Ingrédients (Sélection du DOM)
+
+Tu dois créer des références vers tous les éléments HTML avec lesquels ton JS va interagir.
+
+* Récupère les 3 colonnes (`#todo-list`, `#in-progress`, `#done`).
+* Récupère le bouton "Ajouter" du header.
+* Récupère la Modale (`#modal`), l'input texte (`#task-input`), le bouton "Valider" et le bouton "Annuler" de la modale.
+
+### Étape 2 : La Mémoire (Le State)
+
+Tu as besoin d'une variable globale qui servira de "Base de données".
+
+* Crée un tableau vide (par exemple `let tasks = []`).
+* **Règle d'or :** Tout ce qui s'affiche à l'écran doit venir de ce tableau. On ne modifie jamais le HTML directement, on modifie le tableau, puis on redessine le HTML.
+
+### Étape 3 : Les Fonctions "Cerveau" (La Logique)
+
+Voici les fonctions que tu dois créer (déclare-les vides au début, puis remplis-les une par une).
+
+#### A. `saveTasks()`
+
+* Son rôle : Sauvegarder le tableau `tasks` dans le `localStorage` du navigateur.
+* Astuce : Le localStorage ne stocke que du texte, tu devras convertir ton tableau en texte (JSON).
+
+#### B. `loadTasks()`
+
+* Son rôle : Au chargement de la page, regarder dans le `localStorage` s'il y a des données.
+* Si oui, convertir le texte en tableau JS, mettre à jour la variable `tasks`, et lancer l'affichage.
+
+#### C. `addTask(text)`
+
+* Son rôle : Créer une nouvelle tâche.
+* Logique :
+1. Créer un objet tâche `{ id: Date.now(), text: text, status: 'todo' }`.
+2. Ajouter cet objet au tableau `tasks` (push).
+3. Lancer la sauvegarde + l'affichage.
+4. Fermer la modale et vider l'input.
+
+
+
+#### D. `deleteTask(id)`
+
+* Son rôle : Supprimer une tâche spécifique.
+* Logique : Filtrer le tableau `tasks` pour garder tout sauf la tâche qui a cet ID. Sauvegarder + Afficher.
+
+#### E. `moveTask(id, newStatus)` (Optionnel si tu gères le déplacement)
+
+* Son rôle : Changer la colonne d'une tâche.
+* Logique : Trouver la tâche dans le tableau grâce à son ID, changer son `status`, sauvegarder + afficher.
+
+#### F. `renderTasks()` (LA PLUS IMPORTANTE)
+
+* Son rôle : Vider les colonnes HTML et les remplir à nouveau basées sur le tableau `tasks`.
+* Logique (Boucle) :
+1. Vider le contenu HTML des 3 colonnes (`innerHTML = ''`).
+2. Parcourir chaque tâche du tableau `tasks`.
+3. Pour chaque tâche :
+* Créer le HTML de la carte (div, titre, boutons).
+* Vérifier son `status`. Si c'est 'todo', l'ajouter dans la colonne 1, si 'in-progress' dans la 2, etc.
+
+
+4. **Important :** C'est ici, lors de la création du HTML, que tu ajoutes les écouteurs d'événements sur les boutons "Supprimer" et "Modifier" de chaque carte (car ces boutons n'existent pas au chargement de la page).
+
+
+
+### Étape 4 : Les Événements (Les Déclencheurs)
+
+C'est ici que tu relies les clics utilisateur à tes fonctions.
+
+1. **Clic sur "Ajouter" (Header) :** Enlève la classe `hidden` de la modale.
+2. **Clic sur "Annuler" (Modal) :** Remet la classe `hidden` et vide l'input.
+3. **Clic sur "Valider" (Modal) :**
+* Vérifie que l'input n'est pas vide.
+* Appelle la fonction `addTask(valeurInput)`.
+
+
+4. **Chargement de la page :** Appelle `loadTasks()` tout en bas du fichier.
+
+---
+
+### Conseil pour l'ordre de codage :
+
+1. Fais d'abord **Step 1 & Step 2**.
+2. Code la fonction `addTask` (sans le localStorage au début) et `renderTasks`.
+3. Teste : Clique ajouter -> tape un truc -> valide -> ça doit apparaître dans la colonne.
+4. Ensuite, ajoute la suppression (`deleteTask`).
+5. Enfin, ajoute le `localStorage` (`saveTasks` et `loadTasks`) pour que ça reste après F5.
+
+Prêt à faire chauffer le clavier ?
+---
+
+### 🌍 PROJET 2 : Le "Dashboard Pays" (Mercredi - Jeudi)
+
+*Un explorateur de pays utilisant une API réelle.*
+
+**Concept Clé :** Gérer l'asynchrone (`async/await`) et nettoyer des données brutes (Data Parsing).
+
+#### 1. Source de Données (API)
+
+* **URL :** `https://restcountries.com/v3.1/all`
+* **Méthode :** GET (via `fetch`).
+* **Champs à récupérer :** Drapeau (`flags.svg`), Nom (`name.common`), Capitale, Population, Région (Continent).
+
+#### 2. Interface Utilisateur (UI)
+
+* **Barre de contrôle :**
+* Un champ de recherche texte ("Rechercher un pays...").
+* Un filtre déroulant (Select) par continent (Africa, Europe, Asia...).
+* Un bouton de tri (Optionnel : Trier par population croissant/décroissant).
+
+
+* **Grille de résultats :** Une grille responsive (CSS Grid) affichant les cartes des pays.
+* **Feedback :** Un message "Chargement..." pendant la requête et un message d'erreur si l'API plante.
+
+#### 3. Fonctionnalités (User Stories)
+
+1. **FETCH (Récupérer) :** Dès l'ouverture de la page, l'application télécharge la liste de tous les pays et les affiche.
+2. **SEARCH (Rechercher) :** Quand l'utilisateur tape une lettre, la liste se met à jour instantanément (filtrage temps réel).
+* *Contrainte :* Doit marcher en minuscules comme en majuscules.
+
+
+3. **FILTER (Filtrer) :** Si je sélectionne "Africa", je ne vois que les pays africains.
+* *Challenge Logique :* Si je tape "Ni" ET que je sélectionne "Africa", je ne dois voir que le Niger et le Nigeria (les deux filtres s'additionnent).
+
+
+4. **FORMAT (Afficher proprement) :** Les grands nombres (population) doivent être séparés par des espaces ou virgules (ex: 25 000 000 et pas 25000000).
+
+---
+
+### 🗓️ Planning suggéré
+
+* **Lundi (Aujourd'hui) :** HTML/CSS du Kanban + Structure JS (Tableau mocké).
+* **Mardi :** Logique JS du Kanban (Fonctions Add/Move/Delete + LocalStorage).
+* **Mercredi :** Découverte API Pays + HTML/CSS du Dashboard.
+* **Jeudi :** Logique JS du Dashboard (Filtres, Recherche).
+* **Vendredi/Samedi :** Nettoyage du code, commentaires, et déploiement final.
+
+Tu commences par le HTML du Kanban ?

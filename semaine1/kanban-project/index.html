@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- header, titre et un bouton pour ajouter une tache -->
+     <header>
+        <div class="header-title">
+            <h2 id="titre">Kanban</h2>
+        </div>
+        
+        <!-- btn pour add une tache -->
+         <div class="header-btn">
+         <button id="btn-add">Ajouter</button>
+         </div>
+     </header>
+
+     <!-- main -->
+      <main>
+        <!-- les colonnes -->
+         <div class="col col1" id="todo-list">
+            <!-- 
+            <div class="carte-tache">
+                <div class="carte-title">
+                    <h1 class="titre">
+                        heh
+                    </h1>
+                    <div class="card-content">
+                        <h4>
+                            learn nodejs
+                        </h4>
+                    </div>
+                </div>
+                 <div class="carte-btn">
+                    <button type="button" class="btn-update">modifier</button>
+                    <button type="button" class="btn-del">supprimer</button>
+                 </div>
+            </div>
+             -->
+         </div>
+         <!-- colonne2 -->
+          <div class="col col2" id="in-progress">
+            
+         </div>
+         <!-- colonne3 -->
+          <div class="col col3" id="done">
+            
+         </div>
+      </main>
+      <div id="modal" class="hidden">
+        <div class="modal-content">
+            <h3>Nouvelle Tâche</h3>
+            <input type="text" id="task-input" placeholder="Qu'avez-vous à faire ?">
+            <div class="modal-actions">
+                <button id="btn-save">Valider</button>
+                <button id="btn-cancel">Annuler</button>
+            </div>
+        </div>
+    </div>
+      <script src="app.js"></script>
+</body>
+</html>

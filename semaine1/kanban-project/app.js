@@ -54,6 +54,7 @@
     function deleteTask(id) {
         const longInitial = tasks.length;
         del_tache = tasks.filter(ide => ide.id !== id);
+        tasks = del_tache;
         if (longInitial === tasks.length) {
             return `aucune tache correspondante`
         }
@@ -67,11 +68,11 @@
         // boucle pour mes colonnes
          colonnes.forEach(colonne=>{
             colonne.addEventListener('dragover', (event)=>{
-                event.prevenDefault();
+                event.preventDefault();
                 colonne.classList.add('drag-over');
             })
             // si on quitte
-            colonne.addEventListener('drag-leave', (event)=>{
+            colonne.addEventListener('dragleave', (event)=>{
                 event.preventDefault();
                 colonne.classList.remove('drag-over')
             })
@@ -80,24 +81,26 @@
                 event.preventDefault();
                 colonne.classList.remove('drag-over');
                 
+                const taskId = event.dataTransfer.getData('text/plain', taskId);
                 // recuperons l'id de la new colonne
+                if(taskId){
                 const colonneId = colonne.id 
                 let nouvStatut ;
                 if(colonneId === 'todo-list')
-                    nouvStatut = 'todo';
+                    nouvStatut = 'faire';
                 else if(colonneId === 'in-progress')
                     nouvStatut = 'in-progress';
                 else if(colonneId === 'done') nouvStatut = 'done';
-                deplacerTask() ///
-            });
+                deplacerTask(taskId, nouvStatut) ///
+         }});
          });
     };
 
     // ma fonction pour deplacer une tache
     function deplacerTask(taskId, nouvStatut) {
         // trouver l'index
-        const index = tasks.findIndex(t => t == taskId);
-        if (index !== 1) {
+        const index = tasks.findIndex(t => t.id == taskId);
+        if (index !== -1) {
             tasks[index].statut = nouvStatut;
         }
         saveTask()
@@ -114,7 +117,7 @@
             carteTache.className = 'carte-tache';
             carteTache.setAttribute('draggable', 'true')
             carteTache.dataset.id = tache.id;
-            tache.innerHTML = `
+            carteTache.innerHTML = `
               <div class="carte-title">
                     <div class="card-content">
                         <h4>
@@ -127,16 +130,36 @@
                     <button type="button" class="btn-del">supprimer</button>
                  </div>
             `;
-            // gerer les buttons
-            cancelTask.addEventListener('click', ()=>{
-                deleteTask(tache.id);
+           carteTache.addEventListener('dragstart', (event)=>{
+            event.dataTransfer.setData('text/plain', tache.id)
+           })
 
+            //gerer bouton supprimer
+            cancelTask.addEventListener('click', ()=>{
+                deleteTask(tache.id)
             });
 
             // ajouter dans la colonne
-            if(tache.statut === 'todo') listTask.appendChild(carteTache);
+            if(tache.statut === 'faire') listTask.appendChild(carteTache);
             else if(tache.statut === 'in-progress') progressTask.appendChild(carteTache);
             else if(tache.statut === 'done') doneTask.appendChild(carteTache);
         })
     };
-    taskInput.addEventListener('click', addTask())
+
+    //evenements
+    saveTache.addEventListener('click', ()=>{
+       const userText = taskInput.value;
+        addTask(userText);
+        document.getElementById("modal").classList.add("hidden");
+    });
+    
+    // addtaskk
+    addTaskk.addEventListener('click', ()=>{
+        document.getElementById("modal").classList.remove("hidden");
+    taskInput.value = ''
+    });
+
+ cancelTask.addEventListener('click', ()=>{
+        document.getElementById("modal").classList.remove("hidden");
+    taskInput.value = ''
+    })

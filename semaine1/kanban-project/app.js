@@ -10,6 +10,8 @@
   
     // data base locale par un tableau 
     let tasks = [];
+    loadTask()
+    drag_et_drop()
 
              // sauvegarder les taches
             function saveTask() {
@@ -32,7 +34,7 @@
     //ajouter une tache
     function addTask(text) {
         let tache = {
-            id: Math.ceil(Math.random()*388),
+            id: Date.now(),
             text:text,
             statut:"faire"
         };
@@ -45,7 +47,7 @@
             saveTask();
             afficherTache();
          } catch (error) {
-            throw new Error("tache n'a pas ete ajoutee");
+           console.error(error)
             
          }
     };
@@ -81,7 +83,7 @@
                 event.preventDefault();
                 colonne.classList.remove('drag-over');
                 
-                const taskId = event.dataTransfer.getData('text/plain', taskId);
+                const taskId = event.dataTransfer.getData('text/plain');
                 // recuperons l'id de la new colonne
                 if(taskId){
                 const colonneId = colonne.id 
@@ -135,9 +137,10 @@
            })
 
             //gerer bouton supprimer
-            cancelTask.addEventListener('click', ()=>{
+            const delbtn = carteTache.querySelector('.btn-del');
+             delbtn.addEventListener('click', ()=>{
                 deleteTask(tache.id)
-            });
+             })
 
             // ajouter dans la colonne
             if(tache.statut === 'faire') listTask.appendChild(carteTache);

@@ -1,0 +1,101 @@
+/* RESET ET BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #111113; /* Fond très sombre */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container-parent {
+    width: 100%;
+    max-width: 1000px; /* On centre tout */
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #f39c12, #e74c3c); /* Dégradé Crypto */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    color: #888;
+    margin-top: 5px;
+}
+
+/* TABLEAU ET GRILLE */
+.table-header, .crypto-row {
+    display: grid;
+    grid-template-columns: 50px 1.5fr 1fr 1fr 1.5fr;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #222;
+}
+
+.table-header {
+    font-weight: 600;
+    color: #888;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* DESIGN DES LIGNES (Généré par JS) */
+.crypto-row {
+    transition: background 0.2s;
+}
+
+.crypto-row:hover {
+    background-color: #1a1a1d; /* Effet survol */
+}
+
+/* Elements spécifiques */
+.coin-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.coin-info img {
+    width: 30px;
+    height: 30px;
+}
+
+.coin-symbol {
+    color: #888;
+    font-weight: normal;
+    font-size: 0.9rem;
+}
+
+/* COULEURS  */
+.positive {
+    color: #27ae60; /* Vert */
+}
+
+.negative {
+    color: #e74c3c; /* Rouge */
+}
+
+/* RESPONSIVE (Mobile) */
+@media (max-width: 600px) {
+    .marketcap, .rank {
+        display: none; /* On cache les colonnes inutiles sur mobile */
+    }
+    .table-header, .crypto-row {
+        grid-template-columns: 1.5fr 1fr 1fr; /* On réajuste la grille */
+    }
+}

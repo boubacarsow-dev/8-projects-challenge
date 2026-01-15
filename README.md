@@ -1,4 +1,4 @@
-# 🚀 Vanilla JS Intensive: Enterprise Track
+#  Vanilla JS Intensive: Enterprise Track
 
 Bienvenue sur mon portfolio de montée en compétence.
 Mon objectif : Maîtriser le JavaScript "Vanilla" (ES6+) à travers **5 projets de niveau entreprise**, simulant des cas réels du marché (CRUD, APIs, Logique métier, Admin Panels).

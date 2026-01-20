@@ -9,7 +9,7 @@ Mon objectif : Maîtriser le JavaScript "Vanilla" (ES6+) à travers **5 projets 
 | :---: | :--- | :--- | :---: |
 | **S1** | [**1. Kanban Board**](./semaine-1/kanban) | **Productivity Tool** <br> CRUD, LocalStorage, Drag & Drop API, Gestion du DOM. | ✅ Terminé |
 | **S1** | [**2. REST Countries Dashboard**](./semaine-1/countries) | **Data Visualization** <br> Consommation d'API (Fetch/Async), Filtres dynamiques, Dark Mode. | 🚧 En cours |
-| **S2** | **3. E-commerce Cart Logic** | **Business Logic (Complexe)** <br> Gestion d'état (State), Calculs temps réel, Gestion de stock, Doublons. | ⏳ À venir |
+| **S2** | **3. E-commerce Cart Logic** | **Business Logic (Complexe)** <br> Gestion d'état (State), Calculs temps réel, Gestion de stock, Doublons. | ✅ Terminé |
 | **S3** | **4. CRM Admin Panel** | **Back-office System** <br> Tableaux de données, Pagination, Édition (Modales), Validation de formulaires. | ⏳ À venir |
 | **S4** | **5. Booking System** | **Scheduling App (Type Doctolib)** <br> Gestion avancée des Dates/Heures, Algorithmes de créneaux, UX complexe. | ⏳ À venir |
 

@@ -161,4 +161,34 @@ function afficherPanierSidebar() {
     if (spanTotal) {
         spanTotal.textContent = `${totalGlobal} FCFA`;
     }
+};
+
+// ouvrir et fermer
+//ouvrir
+if(btnOuvrirPanier && sidebarPanier){
+    btnOuvrirPanier.addEventListener('click', (e)=>{
+        sidebarPanier.classList.add('open');
+
+        const overlay = document.querySelector('.overlay');
+        if (overlay) overlay.classList.add('active');
+    });
+};
+
+//fermer
+if(btnFermerPanier && sidebarPanier){
+    btnFermerPanier.addEventListener('click', (e)=>{
+        sidebarPanier.classList.remove('app');
+
+        const overlay = document.querySelector('.overlay');
+        if (overlay) overlay.classList.add('active');
+    })
+};
+
+// 
+const overlay = document.querySelector('.overlay');
+if (overlay && sidebarPanier) {
+    overlay.addEventListener('click', () => {
+        sidebarPanier.classList.remove('open');
+        overlay.classList.remove('active');
+    });
 }

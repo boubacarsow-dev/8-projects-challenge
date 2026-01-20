@@ -15,7 +15,7 @@ export const lesPlats: Mplat[] = [
         nom: "Foutou Banane",
         prix: 3500,
         categorie: "resistance",
-        image: "://external-.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.z_g-wRbGIVlIFlQi6jcY4gHaE8%3Fpid%3DApi&f=1&ipt=ec3ee2dfd62e7c7a3f5572a9f7ebb288a53c0bdd5fa02fc4691fd80239ef8c94&ipo=images",
+        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.qeb7ebM1kXKY5uNuWvhq5AHaGV%3Fpid%3DApi&f=1&ipt=674322d0c0667c4a3d61a297f964c3f578d74eba29b45b1304b4c87a8dfd1633&ipo=images",
         description: "Boule de foutou pilé main, sauce graine riche avec viande de brousse."
     },
     {
@@ -23,7 +23,7 @@ export const lesPlats: Mplat[] = [
         nom: "Placali Sauce Gombo",
         prix: 2500,
         categorie: "resistance",
-        image: "",
+        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.EAVDsdWjNpCXSt_d64pKgQHaIw%3Fpid%3DApi&f=1&ipt=8d688e5645f7023a4be668fc875c9bc3cd668dbb9a816221b345b2f15014cfcc&ipo=images",
         description: "Pâte de manioc fermentée accompagnée d'une sauce kopè (gombo) aux crabes."
     },
 
@@ -33,7 +33,7 @@ export const lesPlats: Mplat[] = [
         nom: "Poulet Braisé & Alloco",
         prix: 4000,
         categorie: "braice",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Poulet_brais%C3%A9_et_alloco.JPG/640px-Poulet_brais%C3%A9_et_alloco.JPG",
+        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.Uywq_s8VdieqJ_JX0Atd0AHaHe%3Fpid%3DApi&f=1&ipt=d63084724d42023b37e5491bfe85612dc7546bbbf0850de4cdfbafddf5ff365f&ipo=images",
         description: "Demi-poulet assaisonné et grillé au charbon, servi avec alloco mûr."
     },
     {
@@ -41,7 +41,7 @@ export const lesPlats: Mplat[] = [
         nom: "Choukouya de Mouton",
         prix: 3000,
         categorie: "braice",
-        image: "https://images.unsplash.com/photo-1544025162-d76690b6d012?auto=format&fit=crop&w=500&q=60",
+        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.3MjgthlmEUudu7ZNuco0nQHaHa%3Fpid%3DApi&f=1&ipt=4221e2a274dcf64e06899e210cac6c6b18a947b31d320cb31c90353eae5411bc&ipo=images",
         description: "Viande de mouton coupée en dés, épicée au kankankan, cuite à l'étouffée."
     },
     {
@@ -75,7 +75,7 @@ export const lesPlats: Mplat[] = [
         nom: "Gnamankoudji",
         prix: 500,
         categorie: "enjaillement",
-        image: "https://images.unsplash.com/photo-1626139576127-6c2688863f6a?auto=format&fit=crop&w=500&q=60",
+        image:"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.cdTEy8KaEIjIb4GJiehbxwHaHN%3Fpid%3DApi&f=1&ipt=bdd8c2eb955542f8ab5ab6394677006cfcca763aaeb58613b6b7f2400652ef80&ipo=images",
         description: "Jus de gingembre pur, fort et citronné pour donner la force."
     }
 ];

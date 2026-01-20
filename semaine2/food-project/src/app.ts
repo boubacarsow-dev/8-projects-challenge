@@ -139,7 +139,7 @@ function afficherPanierSidebar() {
         monPanier.forEach(p => {
             // A. Création visuelle
             const lignePanier = document.createElement('div');
-            lignePanier.className = "cart-item";
+            lignePanier.className = "panier-item";
             lignePanier.innerHTML = `
                 <img src="${p.image}" alt="${p.nom}">
                 <div class="item-info">
@@ -191,4 +191,62 @@ if (overlay && sidebarPanier) {
         sidebarPanier.classList.remove('open');
         overlay.classList.remove('active');
     });
+// fait
+// 
+if (containerItems) {
+    containerItems.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+
+        const btnPlus = target.closest('.btn-plus') as HTMLButtonElement;
+        const btnMoins = target.closest('.btn-moins') as HTMLButtonElement;
+        const btnTrash = target.closest('.btn-trash') as HTMLButtonElement;
+
+        if (btnPlus) {
+            const id = parseInt(btnPlus.dataset.id || "0");
+            modifierQuantite(id, 1); // On ajoute 1
+        }
+
+        // CAS 2 : Clic sur MOINS (-)
+        if (btnMoins) {
+            const id = parseInt(btnMoins.dataset.id || "0");
+            modifierQuantite(id, -1); // On enlève 1
+        }
+
+        // CAS 3 : Clic sur POUBELLE
+        if (btnTrash) {
+            const id = parseInt(btnTrash.dataset.id || "0");
+            supprimerArticle(id);
+        }
+    });
 }
+
+// 
+// Fonction pour augmenter ou diminuer
+function modifierQuantite(id: number, changement: number) {
+    // 1. On trouve l'article dans le panier
+    const item = monPanier.find(p => p.id === id);
+
+    if (item) {
+        // 2. On change la quantité
+        item.quantite += changement;
+
+        //
+        if (item.quantite < 1) {
+            item.quantite = 1; 
+        }
+
+        // 4. On rafraîchit l'affichage
+        mettreAJourCompteur();
+        afficherPanierSidebar();
+    }
+}
+
+// Fonction pour supprimer complètement un article
+function supprimerArticle(id: number) {
+    // On filtre le tableau pour garder tout SAUF celui qu'on veut supprimer
+    monPanier = monPanier.filter(p => p.id !== id);
+
+    // On rafraîchit l'affichage
+    mettreAJourCompteur();
+    afficherPanierSidebar();
+}}

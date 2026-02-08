@@ -1,0 +1,123 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+ }
+ /* regle */
+ html{
+    font-size: 62.5%;
+ }
+
+ /* navbar */
+ .navbar{
+    background-color: black;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.8rem;
+   
+ }
+ .nom_prenoms h2{
+    font-size: 1rem;
+    color: beige;
+    margin-left: 1rem;
+ }
+ .nom_prenoms span{
+    color: aquamarine;
+ }
+
+ .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-right: 1rem;
+ }
+ ul {
+    list-style-type: none;
+    font-size: 1.7rem;
+
+   
+ }
+ a{text-decoration: none;
+color: azure;}
+.active{
+    color: aquamarine;
+}
+/* https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.jrMxdD1dmV8ktpplTKAQWwHaE7%3Fcb%3Ddefcache2%26pid%3DApi%26defcache%3D1&f=1&ipt=f22e438ee2409e71b545f7bfde3d388cfd7048d64c36928e41377aa3c369ee6c&ipo=images */
+
+/* hero section */
+.hero{
+    max-width: 100%;
+    margin-top: 2rem;
+    padding: 2rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.hero-image img{
+    max-width: 150px;
+    margin-right: 20px;
+    background-color: bisque;
+}
+
+.hero-content p{
+    font-size: 1.7rem;
+    margin-bottom: 3rem;
+}
+.hero-content span{
+    color: aquamarine;
+    font-weight: 800;
+    
+}
+.hero-content a{
+    background-color: aquamarine;
+    padding: 1rem;
+    text-align: center;
+    color: black;
+    border-radius: 30px;
+    margin-left: 70px;
+}
+/* a propos */
+.Apropos{
+    max-width: 100%;
+    margin-top: 2rem;
+    padding: 2rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.Apropos img{
+    max-width: 150px;
+    margin-right: 20px;
+    border-radius: 20px;
+    background-color: bisque;
+}
+.btn{
+    background-color: blanchedalmond;
+}
+.btn h3{
+    text-align: center;
+    color: aquamarine;
+    padding: 1rem;
+    font-weight: bolder;
+}
+/* section projet */
+.projets{
+    max-width: 1200px;
+    width: 100%;
+    padding: 2rem;
+    background-color:azure;
+}
+.projets h2{
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.9rem;
+    color: aquamarine;
+}
+
+/* flexbox */

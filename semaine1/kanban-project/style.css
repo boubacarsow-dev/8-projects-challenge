@@ -82,11 +82,9 @@
   }
  /* styliser les cartes */
  .carte-tache {
-    /* Enlève le width: 90px trop petit, laisse la carte prendre la place dispo */
     width: 100%; 
     background-color: var(--bg1);
     
-    /* Enlève le padding: 8rem (80px) qui est énorme */
     padding: 1.5rem; 
     
     /* Style visuel */
@@ -99,12 +97,10 @@
     flex-direction: column; 
     gap: 1rem; /* Espace entre les éléments internes */
     
-    /* Enlève position: relative/absolute pour que la carte grandisse avec le texte */
 }
- /* Remplace tes blocs .carte-title et .carte-btn par ça */
 
 .carte-title {
-    /* Plus besoin de position absolute */
+
     color: var(--border);
     font-size: 1.2rem;
 }
@@ -112,11 +108,11 @@
 .card-content h4 {
     font-size: 1.4rem;
     color: #333;
-    word-wrap: break-word; /* Si le mot est trop long, il va à la ligne */
+    word-wrap: break-word; 
 }
 
 .carte-btn {
-    /* Plus besoin de position absolute */
+
     display: flex;
     flex-direction: row;
     justify-content: flex-end; /* Pousse les boutons à droite */

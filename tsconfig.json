@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    /* 1. Configuration de base pour le Navigateur */
+    "target": "ES2020",          /* Version moderne de JS */
+    "module": "ES2020",          /* Modules (import/export) pour navigateur */
+    "moduleResolution": "node",
+    
+    /* 2. C'est LA ligne qui corrige l'erreur "find" */
+    "lib": ["ES2015", "DOM"],    /* On active le DOM (document...) et ES2020 (Array.find...) */
+
+    /* 3. Chemins */
+    "outDir": "./dist",          /* Où vont les fichiers JS */
+    "rootDir": "./src",          /* Où sont tes fichiers TS */
+
+    /* 4. Rigueur */
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

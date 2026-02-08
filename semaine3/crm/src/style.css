@@ -1,0 +1,212 @@
+/* =========================================
+   RESET & BASE
+   ========================================= */
+:root {
+  /* Palette de couleurs inspirée "Pro & Ivoirienne" */
+  --couleur-primaire: #F9703E; /* Orange Côte d'Ivoire */
+  --couleur-secondaire: #2D3748; /* Bleu nuit pour le texte */
+  --couleur-fond: #F7FAFC; /* Gris très clair pour le fond */
+  --couleur-blanc: #FFFFFF;
+  --couleur-bordure: #E2E8F0;
+  
+  /* Couleurs de Statut (Badges) */
+  --statut-prospect: #4299E1;   /* Bleu */
+  --statut-visite: #ECC94B;     /* Jaune */
+  --statut-nego: #805AD5;       /* Violet */
+  --statut-vendu: #48BB78;      /* Vert */
+  --statut-annule: #F56565;     /* Rouge */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: --couleur-fond; /* Oups, petite erreur syntaxe corrigée ci-dessous */
+  background-color: var(--couleur-fond);
+  color: var(--couleur-secondaire);
+  line-height: 1.6;
+}
+
+/* =========================================
+   LAYOUT (MISE EN PAGE)
+   ========================================= */
+.conteneur {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* En-tête */
+.entete-principale {
+  background-color: var(--couleur-blanc);
+  padding: 20px 0;
+  border-bottom: 1px solid var(--couleur-bordure);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.entete-principale h1 {
+  color: var(--couleur-primaire);
+  font-size: 1.8rem;
+}
+
+/* =========================================
+   FORMULAIRE (PANNEAU DU HAUT)
+   ========================================= */
+.panneau-formulaire {
+  background-color: var(--couleur-blanc);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+}
+
+.panneau-formulaire h2 {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  border-left: 4px solid var(--couleur-primaire);
+  padding-left: 10px;
+}
+
+/* Grille pour mettre 2 champs côte à côte */
+.groupe-champs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+/* Responsive : sur mobile, on passe en colonne unique */
+@media (max-width: 600px) {
+  .groupe-champs {
+    grid-template-columns: 1fr;
+  }
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.champ label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.champ input, 
+.champ select, 
+.champ textarea {
+  padding: 10px;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* Bouton principal */
+.bouton-ajouter {
+  background-color: var(--couleur-primaire);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.bouton-ajouter:hover {
+  background-color: #DD5A2B; /* Un orange un peu plus sombre */
+}
+
+/* =========================================
+   LISTE DES CLIENTS (TABLEAU)
+   ========================================= */
+.panneau-liste {
+  background-color: var(--couleur-blanc);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.entete-liste {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.badge-compteur {
+  background-color: var(--couleur-secondaire);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.conteneur-tableau {
+  overflow-x: auto; /* Permet de scroller horizontalement sur mobile */
+}
+
+.tableau-clients {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableau-clients th {
+  text-align: left;
+  padding: 12px;
+  background-color: #EDF2F7;
+  color: #4A5568;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.tableau-clients td {
+  padding: 12px;
+  border-bottom: 1px solid var(--couleur-bordure);
+  font-size: 0.95rem;
+}
+
+/* =========================================
+   ÉLÉMENTS DYNAMIQUES (BADGES & BOUTONS)
+   ========================================= */
+
+/* Style générique du badge statut */
+.badge-statut {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+}
+
+/* Couleurs spécifiques selon le statut */
+.statut-prospect { background-color: var(--statut-prospect); }
+.statut-visite { background-color: var(--statut-visite); color: #333; } /* Texte noir pour le jaune */
+.statut-negociation { background-color: var(--statut-nego); }
+.statut-vendu { background-color: var(--statut-vendu); }
+.statut-annule { background-color: var(--statut-annule); }
+
+/* Bouton Supprimer */
+.btn-supprimer {
+  background-color: transparent;
+  border: 1px solid #FC8181;
+  color: #C53030;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.btn-supprimer:hover {
+  background-color: #FFF5F5;
+}

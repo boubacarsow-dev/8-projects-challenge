@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+             <i class="fa-solid fa-utensils"></i> Fouta Express
+        </div>
+        <!-- menu -->
+          
+      <ul class="liens-menu">
+        <li><a href="#home">Accueil</a></li>
+        <li><a href="#menu">La Carte</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <!-- bouton -->
+        <button id="btn-panier" class="cart-btn">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="compteur-panier" class="badge">0</span>
+      </button>
+    </div>
+
+    <!-- header section -->
+     <header class="hero"  id="home">
+        <div class="hero-overlay">
+        <div class="contenu-hero">
+            <h3>LIVRONS A ABIDJAN MAINTENANT</h3>
+            <h1>LES DELICIEUX </br>
+                <span>REPAS</span> DE BABI
+            </h1>
+            <p>Garba, Braisé, Foutou... Livré chez toi en 30 minutes.</p>
+            <a href="#menu" class="cta-button">Commander Maintenant</a> 
+        </div>
+      </div>  
+     </header>
+ 
+     <!-- section menu -->
+      <main>
+        <section id="menu" class="section-menu">
+            <div class="section-header">
+          <h2>Notre Carte 📜</h2>
+          <p>Choisissez votre catégorie préférée</p>
+        </div>
+<!-- les filtres -->
+        <div class="filters" id="filters">
+          <button class="filter-btn active" data-filter="all">Tout</button>
+          <button class="filter-btn" data-filter="resistance">Résistance 🍗</button>
+          <button class="filter-btn" data-filter="braice">Braicé 🔥</button>
+          <button class="filter-btn" data-filter="enjaillement">Enjaillement 🍹</button>
+        </div>
+<!-- le conteneur de repas -->
+        <div id="food-container" class="repas-grid">
+           </div>
+        </section>
+      </main>
+
+      <!-- mon panier -->
+       <aside class="sidebar-panier" id="panier">
+        <div class="sidebar-header">
+          <h3>Mon Panier <span id="total-panier">(0)</span></h3>
+          <button class="panierFermant" id="fermer-panier">&times;</button>
+        </div>
+
+        <!-- items  panier-items-->
+          <div id="containerItems" class="panier-items"> 
+        <div class="panier-vide">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <p>Votre panier est vide</p>
+        </div>
+      </div>
+
+      <!-- footer de panier -->
+         <div class="panier-footer">
+        <div class="total">
+          <span>Total à payer :</span>
+          <span id="prix-total">0 FCFA</span>
+        </div>
+        <button id="btn-commander" class="checkout-btn">Valider la commande</button>
+      </div>
+      
+       </aside>
+<div id="overlay" class="overlay"></div>
+
+
+       <footer id="contact">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>Dabali Express</h4>
+          <p>Le meilleur de la gastronomie ivoirienne en ligne.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Liens utiles</h4>
+          <a href="#">Mentions Légales</a>
+          <a href="#">Livraison</a>
+        </div>
+        <div class="footer-col">
+          <h4>Suivez-nous</h4>
+          <div class="socials">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Dabali Express - Fait à Abidjan.</p>
+      </div>
+    </footer>
+    <script type="module" src="/semaine2/food-project/dist/app.js"></script>
+</body>
+</html>

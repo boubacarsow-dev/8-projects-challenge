@@ -1,7 +1,7 @@
-# 🥘 Dabali Express - Application de Commande de Plats
+# 🥘 SAVEURGO - Application de Commande de Plats
 
-![Dabali Express Banner](./screenshot.png)
-*(Ajoute une capture d'écran de ton site ici plus tard)*
+![SAVEURGO  Banner](./screenshot.png)
+
 
 > **Challenge 8 Projets - Semaine 2**
 > Une application web dynamique pour commander les meilleurs plats d'Abidjan (Garba, Foutou, Braisé...), entièrement codée en **TypeScript Vanilla**.
@@ -30,7 +30,7 @@
 Le projet sépare strictement le code source (développement) du code compilé (production).
 
 ```text
-DabaliExpress/
+SAVEURGO/
 ├── src/                #  Code Source (TypeScript)
 │   ├── db.ts           # Simule la base de données
 │   ├── types.ts        # Interfaces et Types

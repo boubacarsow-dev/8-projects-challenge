@@ -1,6 +1,6 @@
 # 🥘 SAVEURGO - Application de Commande de Plats
 
-![SAVEURGO  Banner](./screenshot.png)
+![SAVEURGO  Banner]
 
 
 > **Challenge 8 Projets - Semaine 2**

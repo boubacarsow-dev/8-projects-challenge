@@ -1,0 +1,12 @@
+{
+  "name": "support-desk",
+  "version": "1.0.0",
+  "description": "Challenge Semaine 4",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

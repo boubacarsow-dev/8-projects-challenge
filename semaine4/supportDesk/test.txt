@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SupportDesk - Tableau de Bord</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">🎧</span> Support<strong>Desk</strong>
+            </div>
+            
+            <nav class="menu">
+                <a href="#" class="active">📊 Tableau de bord</a>
+                <a href="#">🎟️ Tickets</a>
+                <a href="#">👥 Clients</a>
+                <a href="#">📈 Statistiques</a>
+                <a href="#">⚙️ Paramètres</a>
+            </nav>
+
+            <div class="user-profile">
+                <div class="avatar">MK</div>
+                <div class="user-info">
+                    <span class="name">Moussa Koné</span>
+                    <span class="role">Admin Système</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-bar" placeholder="Rechercher un ticket, un client...">
+                </div>
+                
+                <div class="actions">
+                    <button class="btn-icon">🔔</button>
+                    <button class="btn-primary" id="btn-new-ticket">+ Nouveau Ticket</button>
+                </div>
+            </header>
+
+            <section class="stats-grid">
+                <div class="card stat-card">
+                    <div class="top-row">
+                        <div class="icon-box blue">💼</div>
+                        <span class="tag-success">+12%</span>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Tickets</h3>
+                        <p class="number">124</p>
+                    </div>
+                </div>
+
+                <div class="card stat-card">
+                    <div class="top-row">
+                        <div class="icon-box yellow">📋</div>
+                        <span class="tag-neutral">24h</span>
+                    </div>
+                    <div class="stat-info">
+                        <h3>En Cours</h3>
+                        <p class="number">18</p>
+                    </div>
+                </div>
+
+                <div class="card stat-card border-red">
+                    <div class="top-row">
+                        <div class="icon-box red">⚠️</div>
+                        <span class="tag-danger">Action Requise</span>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Tickets Urgents</h3>
+                        <p class="number text-red">5</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card tickets-section">
+                <div class="section-header">
+                    <h2>Tickets Récents</h2>
+                    <div class="filters">
+                        <button class="btn-outline">Filtrer</button>
+                        <button class="btn-outline">Trier</button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="ticket-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Sujet</th>
+                                <th>Demandeur</th>
+                                <th>Priorité</th>
+                                <th>Statut</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ticket-list-body">
+                            <tr>
+                                <td class="id-cell">#INC-2024</td>
+                                <td>
+                                    <div class="ticket-subject">Erreur Connexion VPN</div>
+                                    <small class="text-muted">Impossible d'accéder au serveur...</small>
+                                </td>
+                                <td>
+                                    <div class="requester">
+                                        <span class="avatar-sm">JC</span> Jean Coulibaly
+                                    </div>
+                                </td>
+                                <td><span class="badge badge-high">Urgent</span></td>
+                                <td><span class="badge badge-open">Ouvert</span></td>
+                                <td>12 Fév 2026</td>
+                                <td><button class="btn-action">...</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script type="module" src="dist/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SupportDesk — Tableau de bord</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__logo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="2" width="9" height="9" rx="2" fill="white" opacity="0.9"/>
+          <rect x="13" y="2" width="9" height="9" rx="2" fill="white" opacity="0.6"/>
+          <rect x="2" y="13" width="9" height="9" rx="2" fill="white" opacity="0.6"/>
+          <rect x="13" y="13" width="9" height="9" rx="2" fill="white" opacity="0.3"/>
+        </svg>
+      </div>
+      <span class="sidebar__brand-name">SupportDesk</span>
+    </div>
+
+    <nav class="sidebar__nav">
+      <a href="#" class="nav-item nav-item--active">
+        <svg class="nav-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7" rx="1"/>
+          <rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/>
+          <rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+        <span>Tableau de bord</span>
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="nav-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+          <rect x="9" y="3" width="6" height="4" rx="1"/>
+          <path d="M9 12h6M9 16h4"/>
+        </svg>
+        <span>Tickets</span>
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="nav-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+        </svg>
+        <span>Clients</span>
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="nav-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+        <span>Analytiques</span>
+      </a>
+    </nav>
+
+    <div class="sidebar__bottom">
+      <a href="#" class="nav-item">
+        <svg class="nav-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/>
+          <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <span>Paramètres</span>
+      </a>
+
+      <div class="sidebar__user">
+        <div class="user-avatar">
+          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alex&backgroundColor=b6e3f4" alt="Alex Rivet" />
+        </div>
+        <div class="user-info">
+          <span class="user-info__name">Alex Rivet</span>
+          <span class="user-info__role">Responsable IT Senior</span>
+        </div>
+        <button class="user-menu-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="5" r="1" fill="currentColor"/>
+            <circle cx="12" cy="12" r="1" fill="currentColor"/>
+            <circle cx="12" cy="19" r="1" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="topbar__search">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <input type="text" class="search-input" placeholder="Rechercher un ticket, un client, une base de connaissance..." />
+      </div>
+      <div class="topbar__actions">
+        <button class="btn-icon btn-notif">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 01-3.46 0"/>
+          </svg>
+          <span class="notif-badge"></span>
+        </button>
+        <button id="btn-open-modal" class="btn-new-ticket">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Nouveau Ticket
+        </button>
+      </div>
+    </header>
+
+    <!-- DASHBOARD BODY -->
+    <div class="dashboard">
+
+      <!-- STAT CARDS -->
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <div class="stat-card__header">
+            <div class="stat-card__icon stat-card__icon--blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+                <rect x="9" y="3" width="6" height="4" rx="1"/>
+              </svg>
+            </div>
+            <span class="stat-card__badge stat-card__badge--green">+12%</span>
+          </div>
+          <div class="stat-card__label">Total Tickets</div>
+          <div class="stat-card__value">124</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card__header">
+            <div class="stat-card__icon stat-card__icon--orange">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <path d="M8 2v4M16 2v4M3 10h18"/>
+                <circle cx="12" cy="16" r="2" fill="currentColor" stroke="none"/>
+              </svg>
+            </div>
+            <span class="stat-card__time">Dernières 24h</span>
+          </div>
+          <div class="stat-card__label">En cours</div>
+          <div class="stat-card__value">18</div>
+        </div>
+
+        <div class="stat-card stat-card--urgent">
+          <div class="stat-card__header">
+            <div class="stat-card__icon stat-card__icon--red">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </div>
+            <span class="stat-card__badge stat-card__badge--red">Action Requise</span>
+          </div>
+          <div class="stat-card__label">Tickets Urgents</div>
+          <div class="stat-card__value stat-card__value--red">5</div>
+        </div>
+
+      </div>
+
+      <!-- RECENT TICKETS TABLE -->
+      <div class="tickets-section">
+        <div class="tickets-section__header">
+          <h2 class="tickets-section__title">Tickets Récents</h2>
+          <div class="tickets-section__controls">
+            <button class="btn-control">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="4" y1="6" x2="20" y2="6"/>
+                <line x1="8" y1="12" x2="16" y2="12"/>
+                <line x1="10" y1="18" x2="14" y2="18"/>
+              </svg>
+              Filtrer
+            </button>
+            <button class="btn-control">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 6h18M8 12l4-4 4 4M12 8v8"/>
+              </svg>
+              Trier
+            </button>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="tickets-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>SUJET</th>
+                <th>DEMANDEUR</th>
+                <th>PRIORITÉ</th>
+                <th>STATUT</th>
+                <th>DATE</th>
+                <th>ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody id="ticket-list">
+              <!-- Row 1 -->
+              <tr class="ticket-row">
+                <td><a href="#" class="ticket-id">INC-2034</a></td>
+                <td class="ticket-subject">
+                  <div class="subject-title">Problème VPN</div>
+                  <div class="subject-desc">Impossible de se connecter au serveur de Londres...</div>
+                </td>
+                <td class="ticket-requester">
+                  <div class="requester-avatar" style="background:#4F46E5;color:white">JC</div>
+                  <span>Jane Cooper</span>
+                </td>
+                <td><span class="priority priority--high">Élevée</span></td>
+                <td><span class="status status--open">● Ouvert</span></td>
+                <td class="ticket-date">Oct 24, 2023</td>
+                <td><button class="btn-action-menu">···</button></td>
+              </tr>
+              <!-- Row 2 -->
+              <tr class="ticket-row">
+                <td><a href="#" class="ticket-id">INC-2033</a></td>
+                <td class="ticket-subject">
+                  <div class="subject-title">Réinitialisation de mot de passe</div>
+                  <div class="subject-desc">Bloqué après 3 tentatives échouées...</div>
+                </td>
+                <td class="ticket-requester">
+                  <div class="requester-avatar" style="background:#7C3AED;color:white">RH</div>
+                  <span>Robert Howard</span>
+                </td>
+                <td><span class="priority priority--medium">Moyenne</span></td>
+                <td><span class="status status--inprogress">● En cours</span></td>
+                <td class="ticket-date">Oct 23, 2023</td>
+                <td><button class="btn-action-menu">···</button></td>
+              </tr>
+              <!-- Row 3 -->
+              <tr class="ticket-row">
+                <td><a href="#" class="ticket-id">INC-2032</a></td>
+                <td class="ticket-subject">
+                  <div class="subject-title">Installation de logiciel</div>
+                  <div class="subject-desc">Demande d'installation Adobe Creative Clo...</div>
+                </td>
+                <td class="ticket-requester">
+                  <div class="requester-avatar" style="background:#059669;color:white">ES</div>
+                  <span>Esther Smith</span>
+                </td>
+                <td><span class="priority priority--low">Faible</span></td>
+                <td><span class="status status--pending">● En attente</span></td>
+                <td class="ticket-date">Oct 23, 2023</td>
+                <td><button class="btn-action-menu">···</button></td>
+              </tr>
+              <!-- Row 4 -->
+              <tr class="ticket-row">
+                <td><a href="#" class="ticket-id">INC-2031</a></td>
+                <td class="ticket-subject">
+                  <div class="subject-title">Écran secondaire défaillant</div>
+                  <div class="subject-desc">Le second écran est noir après la mise à jour...</div>
+                </td>
+                <td class="ticket-requester">
+                  <div class="requester-avatar" style="background:#D97706;color:white">TM</div>
+                  <span>Tom Murphy</span>
+                </td>
+                <td><span class="priority priority--high">Élevée</span></td>
+                <td><span class="status status--resolved">● Résolu</span></td>
+                <td class="ticket-date">Oct 22, 2023</td>
+                <td><button class="btn-action-menu">···</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="pagination-bar">
+          <span class="pagination-info">Affichage de 1 à 4 sur 124 entrées</span>
+          <div class="pagination-controls">
+            <button class="page-btn page-btn--disabled">Précédent</button>
+            <button class="page-btn page-btn--active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">Suivant</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+
+  <!-- ===== MODAL NEW TICKET ===== -->
+  <div id="modal-overlay" class="modal-overlay modal--hidden">
+    <div class="modal">
+
+      <div class="modal__header">
+        <div class="modal__header-left">
+          <div class="modal__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+              <rect x="9" y="3" width="6" height="4" rx="1"/>
+              <line x1="9" y1="12" x2="15" y2="12"/>
+              <line x1="9" y1="16" x2="12" y2="16"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="modal__title">Nouveau Ticket</h2>
+            <p class="modal__subtitle">Remplissez les informations pour créer une demande d'assistance</p>
+          </div>
+        </div>
+        <button id="btn-close-modal" class="modal__close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <form id="ticket-form" class="modal__form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="ticket-titre">
+            Titre <span class="form-required">*</span>
+          </label>
+          <input
+            type="text"
+            id="ticket-titre"
+            class="form-input"
+            placeholder="ex : Problème de connexion VPN"
+            autocomplete="off"
+          />
+          <span class="form-error" id="error-titre"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="ticket-description">
+            Description <span class="form-required">*</span>
+          </label>
+          <textarea
+            id="ticket-description"
+            class="form-textarea"
+            placeholder="Décrivez le problème en détail..."
+            rows="4"
+          ></textarea>
+          <span class="form-error" id="error-description"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="ticket-priorite">Priorité</label>
+          <div class="form-select-wrapper">
+            <select id="ticket-priorite" class="form-select">
+              <option value="Faible">🟢 Faible — Low priority</option>
+              <option value="Moyenne" selected>🟡 Moyenne — Medium priority</option>
+              <option value="Urgent">🔴 Urgent — Critical issue</option>
+            </select>
+            <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="modal__footer">
+          <button type="button" id="btn-cancel-modal" class="btn-cancel">Annuler</button>
+          <button type="submit" class="btn-submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Créer le ticket
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+<script type="module" src="dist/app.js"></script>
+</body>
+</html>

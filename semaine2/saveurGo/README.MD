@@ -6,19 +6,19 @@
 ## Objectif Pédagogique
 
 Ce projet a été conçu spécifiquement pour mettre en pratique :
-- **TypeScript** : Utilisation du typage strict, création d'interfaces (`Mplat`, `PanierItem`), structuration du code et compilation via `tsc`.
+- **TypeScript** : Utilisation du typage strict, création d'interfaces (Mplat, PanierItem), structuration du code et compilation via tsc.
 - **Manipulation du DOM** : Création et mise à jour dynamique d'éléments HTML, gestion des événements (clics, filtres, modifications de quantité), et animation de la barre latérale du panier sans framework externe.
 
 ## Aperçu
 
 | Page d'accueil | Liste des produits | Panier d'achat |
 |:---:|:---:|:---:|
-| <img src="assets/acceuil.png" width="300" alt="Accueil" /> | <img src="assets/products.png" width="300" alt="Produits" /> | <img src="assets/panier.png" width="300" alt="Panier" /> |
+| ![Accueil](./assets/acceuil.png) | ![Produits](./assets/products.png) | ![Panier](./assets/panier.png) |
 
 ## Fonctionnalités
 
 - **Menu Interactif** : Génération et affichage dynamique des plats dans le DOM à partir d'une structure de données typée.
-- **Filtrage Dynamique** : Filtrage des plats par catégorie (Résistance, Braisé, Enjaillement) via les attributs `dataset`.
+- **Filtrage Dynamique** : Filtrage des plats par catégorie (Résistance, Braisé, Enjaillement) via les attributs dataset.
 - **Gestion du Panier en Temps Réel** :
   - Ajout de produits et gestion des doublons.
   - Calcul et mise à jour automatique du montant total.
@@ -30,8 +30,8 @@ Ce projet a été conçu spécifiquement pour mettre en pratique :
 
 - **Langage** : TypeScript (Typage strict, Interfaces, Manipulations DOM).
 - **Intégration** : HTML5, CSS3 (Flexbox, CSS Grid, Variables CSS).
-- **Compilation** : Compilateur TypeScript (`tsc`) sans bundler.
-- **Architecture** : Modules ES6 (`import` / `export`).
+- **Compilation** : Compilateur TypeScript (tsc) sans bundler.
+- **Architecture** : Modules ES6 (import / export).
 
 ## Architecture du Projet
 
